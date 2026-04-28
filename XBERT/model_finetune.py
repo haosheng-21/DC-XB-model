@@ -6,7 +6,7 @@ class GNNTransformer_finetune(nn.Module):
     def __init__(self):
         super().__init__()
         net = GNNTransformer()
-        state_dict = torch.load('/.../DC+XB/XBERT/checkpoint/best.pth', map_location='cuda:0')
+        state_dict = torch.load('/.../DC-XB-model/XBERT/checkpoint/best.pth', map_location='cuda:0')
         net.load_state_dict(state_dict)
         del net.out
         self.feature = net

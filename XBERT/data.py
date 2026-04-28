@@ -7,16 +7,16 @@ import pandas as pd
 import json
 import pickle
 import sys
-sys.path.append("/.../DC+XB/XBERT")
+sys.path.append("/.../DC-XB-model/XBERT")
 from utils import ele_vec, get_atom_embedding, GaussianDistance, get_spg_tokens_A, get_spg_tokens_B, get_token_id
 
 #---------------继承torch中的Dataset类，产生每一个材料的信息-----------------------------------------------------
 class GNNTransformerData(Dataset):
     def __init__(self, gen_crys):
         self.data = gen_crys
-        self.vocab_new = json.load(open('/.../DC+XB/XBERT/vocab_new.json', 'r'))
-        self.vocab_newnew = json.load(open('/.../DC+XB/XBERT/vocab_newnew.json', 'r'))
-        self.sg_symbol = json.load(open('/.../DC+XB/XBERT/sg_symbol.json', 'r'))
+        self.vocab_new = json.load(open('/.../DC-XB-model/XBERT/vocab_new.json', 'r'))
+        self.vocab_newnew = json.load(open('/.../DC-XB-model/XBERT/vocab_newnew.json', 'r'))
+        self.sg_symbol = json.load(open('/.../DC-XB-model/XBERT/sg_symbol.json', 'r'))
         # self.vocab_new = json.load(open('vocab_new.json', 'r'))
         # self.vocab_newnew = json.load(open('vocab_newnew.json', 'r'))
         # self.sg_symbol = json.load(open('sg_symbol.json', 'r'))

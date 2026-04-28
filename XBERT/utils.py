@@ -8,7 +8,7 @@ import numpy as np
 def get_element_embedding(x):
     comp = Composition(x)
     elements = ['Cr', 'K', 'La', 'Li', 'Pr', 'Ru', 'Hg', 'Pu', 'Ho', 'Tl', 'Fe', 'Y', 'Ni', 'Al', 'Pm', 'Ag', 'U', 'Sb', 'Zn', 'O', 'Rb', 'Nd', 'Ga', 'Ta', 'Na', 'Ac', 'Se', 'Ca', 'Ti', 'I', 'Co', 'H', 'As', 'Eu', 'Ce', 'Be', 'Cl', 'Sr', 'Pb', 'N', 'Kr', 'Tb', 'Pt', 'C', 'P', 'Hf', 'F', 'Tc', 'He', 'Sc', 'Sm', 'Ne', 'Si', 'Ge', 'Ir', 'Mo', 'Cu', 'Dy', 'Mg', 'W', 'Nb', 'Gd', 'Np', 'Er', 'Th', 'Cd', 'Xe', 'Tm', 'Pa', 'Ar', 'Ba', 'Bi', 'Os', 'Re', 'Lu', 'Mn', 'Au', 'In', 'Cs', 'S', 'Pd', 'Rh', 'Zr', 'B', 'Te', 'Sn', 'Br', 'V']
-    ele_feature = json.load(open('/.../DC+XB/XBERT/ele_emb.json', 'r'))
+    ele_feature = json.load(open('/.../DC-XB-model/XBERT/ele_emb.json', 'r'))
     # ele_feature = json.load(open('ele_emb.json', 'r'))
     ele_embedding = []
     for i in elements:
@@ -20,7 +20,7 @@ def get_element_embedding(x):
 
 #----------------------------得到材料中每个原子的描述---------------------------------------------------------------------------
 def get_atom_embedding(x):
-    ele_feature = json.load(open('/.../DC+XB/XBERT/ele_emb.json', 'r'))
+    ele_feature = json.load(open('/.../DC-XB-model/XBERT/ele_emb.json', 'r'))
     # ele_feature = json.load(open('ele_emb.json', 'r'))
     return ele_feature[x]
 
@@ -70,13 +70,13 @@ class GaussianDistance(object):
 
 #--------------------------------将一个空间群用12个词表示，并将每个词用编码字典中的一个数表示---------------------------------
 def get_spg_tokens_A(spg_symbol: str):
-    spg_dict = json.load(open('/.../DC+XB/XBERT/spg_dict_new.json', 'r'))
+    spg_dict = json.load(open('/.../DC-XB-model/XBERT/spg_dict_new.json', 'r'))
     # spg_dict = json.load(open('spg_dict_new.json', 'r'))
     spg_tokens = list(spg_dict[spg_symbol].values())
     return spg_tokens
 
 def get_spg_tokens_B(spg_symbol: str):
-    spg_dict = json.load(open('/.../DC+XB/XBERT/spg_dict_newnew.json', 'r'))
+    spg_dict = json.load(open('/.../DC-XB-model/XBERT/spg_dict_newnew.json', 'r'))
     # spg_dict = json.load(open('spg_dict_newnew.json', 'r'))
     spg_tokens = list(spg_dict[spg_symbol].values())
     return spg_tokens
@@ -93,7 +93,7 @@ def get_token_id(tokens,vocab):
 
 #-----------------------------------------------ele_vec-------------------------------
 def ele_vec(x):
-    ele_emb = json.load(open('/.../DC+XB/XBERT/ele_emb.json'))
+    ele_emb = json.load(open('/.../DC-XB-model/XBERT/ele_emb.json'))
     # ele_emb = json.load(open('ele_emb.json'))
     comp = Composition(x)
     s = 0

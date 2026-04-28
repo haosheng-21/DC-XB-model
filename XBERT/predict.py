@@ -19,7 +19,7 @@ def reward(data, batch_size):
     predict_loader = DataLoader(data, batch_size = batch_size, shuffle = False, num_workers = 0, collate_fn = collate_fn)
     # print(predict_loader)
     model = GNNTransformer_finetune()
-    state_dict = torch.load('/.../DC+XB/XBERT/checkpoint_topo/checkpoint.pth', map_location='cuda:0')
+    state_dict = torch.load('/.../DC-XB-model/XBERT/checkpoint_topo/checkpoint.pth', map_location='cuda:0')
     model.load_state_dict(state_dict)
     model = model.to(device = device)
     res0 = []
